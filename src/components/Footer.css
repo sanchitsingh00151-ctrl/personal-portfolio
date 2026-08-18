@@ -1,0 +1,52 @@
+.site-footer {
+  border-top: 1px solid #4a0000;
+  background: #050505;
+  padding: 36px 6vw;
+  margin-top: 60px;
+  position: relative;
+  z-index: 10;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.footer-title {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.12em;
+  color: #f1f1f1;
+  margin: 0;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-links a {
+  color: #d00000;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #f1f1f1;
+  text-shadow: 0 0 8px rgba(208, 0, 0, 0.7);
+}
+
+.dot {
+  color: #2a2a2a;
+}
+
+.copyright {
+  margin: 8px 0 0;
+  font-size: 0.8rem;
+  color: #a0a0a0;
+}

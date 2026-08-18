@@ -1,0 +1,441 @@
+.home-page {
+  padding: 0 6vw 40px;
+  position: relative;
+  z-index: 1;
+}
+
+/* 1. Isolated Pitch-Black Mangekyo Sharingan Opening Intro */
+.mangekyo-loading-screen {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: #000000;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: fadeOut 0.4s ease 2.3s forwards;
+}
+
+.sharingan-eye-container {
+  position: relative;
+  width: min(42vw, 220px);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  animation: sharinganAppear 0.3s ease forwards;
+}
+
+.sharingan-accelerating-eye {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform-origin: center center;
+  filter: drop-shadow(0 0 24px rgba(208, 0, 0, 0.85));
+  animation: acceleratingSpin 2.3s cubic-bezier(0.35, 0, 0.25, 1) forwards;
+}
+
+@keyframes sharinganAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Accelerating Rotation Animation: SLOW -> FASTER -> VERY FAST */
+@keyframes acceleratingSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(45deg);
+  }
+  40% {
+    transform: rotate(180deg);
+  }
+  60% {
+    transform: rotate(540deg);
+  }
+  80% {
+    transform: rotate(1260deg);
+  }
+  100% {
+    transform: rotate(2160deg);
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* 2. Hero Section */
+.hero-section {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 32px;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.hero-card {
+  background: #0a0a0a;
+  border: 1px solid #2a2a2a;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+}
+
+.section-label {
+  margin: 0 0 8px;
+  color: #d00000;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.hero-name {
+  margin: 0;
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  color: #f1f1f1;
+  line-height: 1;
+  text-shadow: 0 0 15px rgba(176, 0, 0, 0.35);
+}
+
+.hero-title {
+  margin: 12px 0 20px;
+  font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+  color: #a0a0a0;
+  font-weight: 500;
+}
+
+.hero-bio {
+  line-height: 1.7;
+  color: #a0a0a0;
+  font-size: 1.05rem;
+  margin-bottom: 28px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: #0a0a0a;
+  border: 1px solid #780000;
+  color: #f1f1f1;
+}
+
+.btn-primary {
+  background: #3a0000;
+  border-color: #9b0000;
+  box-shadow: 0 4px 15px rgba(155, 0, 0, 0.3);
+}
+
+.btn-primary:hover {
+  background: #5a0000;
+  border-color: #b00000;
+  box-shadow: 0 0 16px rgba(176, 0, 0, 0.45);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: #0a0a0a;
+  border: 1px solid #4a0000;
+  color: #f1f1f1;
+}
+
+.btn-secondary:hover {
+  background: #3a0000;
+  border-color: #780000;
+  box-shadow: 0 0 12px rgba(176, 0, 0, 0.35);
+  transform: translateY(-2px);
+}
+
+.hero-visual {
+  background: #0f0f0f;
+  border: 1px solid #2a2a2a;
+  border-radius: 16px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+}
+
+.hero-sharingan-badge {
+  width: min(100%, 220px);
+  filter: drop-shadow(0 0 25px rgba(176, 0, 0, 0.6));
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.hero-sharingan-badge:hover {
+  transform: scale(1.05) rotate(10deg);
+  filter: drop-shadow(0 0 35px rgba(208, 0, 0, 0.8));
+}
+
+.badge-caption {
+  margin-top: 20px;
+}
+
+.badge-title {
+  margin: 0;
+  font-weight: 700;
+  color: #f1f1f1;
+  font-size: 1.05rem;
+}
+
+.badge-subtitle {
+  margin: 4px 0 0;
+  color: #a0a0a0;
+  font-size: 0.88rem;
+}
+
+/* 3. Featured Missions */
+.featured-section {
+  margin-top: 60px;
+}
+
+.section-header {
+  margin-bottom: 24px;
+}
+
+.section-title {
+  margin: 0;
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  color: #f1f1f1;
+}
+
+.missions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.mission-card {
+  background: #0f0f0f;
+  border: 1px solid #2a2a2a;
+  border-radius: 14px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.mission-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.9);
+  border-color: #780000;
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.rank-badge {
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+}
+
+.rank-s-rank {
+  background: #3a0000;
+  border: 1px solid #b00000;
+  color: #f1f1f1;
+}
+
+.rank-a-rank {
+  background: #3a0000;
+  border: 1px solid #780000;
+  color: #a0a0a0;
+}
+
+.rank-b-rank {
+  background: #0a0a0a;
+  border: 1px solid #4a0000;
+  color: #a0a0a0;
+}
+
+.mission-name {
+  margin: 0 0 10px;
+  font-size: 1.3rem;
+  color: #f1f1f1;
+}
+
+.mission-desc {
+  color: #a0a0a0;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin: 0 0 16px;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.tech-tag {
+  background: #0a0a0a;
+  border: 1px solid #4a0000;
+  color: #d00000;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.78rem;
+}
+
+.btn-card {
+  background: #0a0a0a;
+  border: 1px solid #4a0000;
+  color: #f1f1f1;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+  transition: all 0.25s ease;
+}
+
+.btn-card:hover {
+  background: #3a0000;
+  border-color: #b00000;
+  box-shadow: 0 0 12px rgba(176, 0, 0, 0.35);
+}
+
+/* 4. Contact Section */
+.contact-section {
+  margin-top: 65px;
+}
+
+.contact-card {
+  background: #0a0a0a;
+  border: 1px solid #2a2a2a;
+  border-radius: 16px;
+  padding: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.contact-sub {
+  color: #a0a0a0;
+  line-height: 1.6;
+  margin: 12px 0 24px;
+}
+
+.direct-links {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contact-item {
+  display: flex;
+  gap: 10px;
+  font-size: 0.95rem;
+}
+
+.item-label {
+  color: #d00000;
+  font-weight: 600;
+  width: 80px;
+}
+
+.item-value {
+  color: #f1f1f1;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.item-value:hover {
+  color: #b00000;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  color: #a0a0a0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.form-group input,
+.form-group textarea {
+  background: #0f0f0f;
+  border: 1px solid #2a2a2a;
+  border-radius: 6px;
+  padding: 10px 14px;
+  color: #f1f1f1;
+  font-family: inherit;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.25s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #780000;
+  box-shadow: 0 0 10px rgba(176, 0, 0, 0.35);
+}
+
+.btn-submit {
+  margin-top: 8px;
+}
+
+.form-success-msg {
+  color: #d00000;
+  font-size: 0.88rem;
+  margin-top: 8px;
+}
+
+@media (max-width: 900px) {
+  .hero-section,
+  .contact-card {
+    grid-template-columns: 1fr;
+  }
+
+  .missions-grid {
+    grid-template-columns: 1fr;
+  }
+}

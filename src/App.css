@@ -1,0 +1,52 @@
+/* Global Design Tokens - Grim Dark Red-and-Black Theme */
+:root {
+  --bg-dark: #050505;
+  --bg-surface: #0a0a0a;
+  --bg-card: #0f0f0f;
+  
+  --dark-red-deep: #3a0000;
+  --dark-red-mid: #5a0000;
+  --dark-red-border: #780000;
+  
+  --primary-red: #9b0000;
+  --primary-red-hover: #b00000;
+  --highlight-red: #d00000;
+  
+  --text-main: #f1f1f1;
+  --text-muted: #a0a0a0;
+  
+  --border-dark: #2a2a2a;
+  --border-red: #4a0000;
+
+  --shadow-glow: 0 0 15px rgba(176, 0, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: var(--text-main);
+  background-color: var(--bg-dark);
+  background-image:
+    radial-gradient(circle at 50% 0%, rgba(90, 0, 0, 0.35), transparent 45%),
+    linear-gradient(180deg, #0a0a0a 0%, #050505 100%);
+  cursor: default; /* Normal browser cursor preserved */
+}
+
+a {
+  color: inherit;
+}
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-content {
+  flex: 1;
+}

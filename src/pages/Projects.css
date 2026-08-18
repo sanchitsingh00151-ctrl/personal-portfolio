@@ -1,0 +1,328 @@
+.projects-page {
+  padding: 0 6vw 60px;
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  transition: background 0.6s ease, box-shadow 0.6s ease, border-color 0.6s ease;
+}
+
+/* --- DYNAMIC BACKGROUND THEME ENVIRONMENTS --- */
+.projects-page.theme-neutral {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(90, 0, 0, 0.25), transparent 45%),
+    linear-gradient(180deg, #0a0a0a 0%, #050505 100%);
+}
+
+/* 1. HOT PINK THEME (C & D Rank) */
+.projects-page.theme-cd-pink {
+  background:
+    radial-gradient(circle at 50% 20%, rgba(255, 42, 133, 0.32), transparent 55%),
+    radial-gradient(circle at 80% 70%, rgba(255, 0, 127, 0.15), transparent 45%),
+    linear-gradient(180deg, #12030a 0%, #070104 100%);
+}
+
+/* 2. LIGHTNING BLUE THEME (A & B Rank) */
+.projects-page.theme-ab-blue {
+  background:
+    radial-gradient(circle at 50% 20%, rgba(0, 180, 255, 0.32), transparent 55%),
+    radial-gradient(circle at 20% 70%, rgba(0, 136, 255, 0.15), transparent 45%),
+    linear-gradient(180deg, #030a12 0%, #010408 100%);
+}
+
+/* 3. BLOOD RED THEME (S Rank) */
+.projects-page.theme-s-red {
+  background:
+    radial-gradient(circle at 50% 20%, rgba(208, 0, 0, 0.4), transparent 55%),
+    radial-gradient(circle at 50% 80%, rgba(130, 0, 0, 0.2), transparent 45%),
+    linear-gradient(180deg, #140202 0%, #050000 100%);
+}
+
+/* Header Banner */
+.projects-header {
+  margin-top: 40px;
+  margin-bottom: 32px;
+}
+
+.projects-title {
+  margin: 0;
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+  color: #f1f1f1;
+}
+
+.projects-sub {
+  color: #a0a0a0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin: 10px 0 0;
+  max-width: 750px;
+}
+
+/* --- SELECTED MISSION DETAIL PANEL --- */
+.selected-detail-panel {
+  background: #0a0a0a;
+  border: 1.5px solid #780000;
+  border-radius: 18px;
+  padding: 32px;
+  margin-bottom: 45px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
+  animation: panelSlide 0.35s ease forwards;
+  position: relative;
+  z-index: 5;
+}
+
+.theme-cd-pink .selected-detail-panel {
+  border-color: #ff2a85;
+  box-shadow: 0 0 35px rgba(255, 42, 133, 0.35);
+}
+
+.theme-ab-blue .selected-detail-panel {
+  border-color: #00d2ff;
+  box-shadow: 0 0 35px rgba(0, 210, 255, 0.35);
+}
+
+.theme-s-red .selected-detail-panel {
+  border-color: #d00000;
+  box-shadow: 0 0 35px rgba(208, 0, 0, 0.45);
+}
+
+.detail-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+}
+
+.panel-mission-name {
+  margin: 8px 0 0;
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  color: #f1f1f1;
+}
+
+.panel-close-btn {
+  background: #050505;
+  border: 1px solid #4a0000;
+  color: #a0a0a0;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  transition: all 0.25s ease;
+}
+
+.panel-close-btn:hover {
+  background: #3a0000;
+  color: #f1f1f1;
+  border-color: #b00000;
+}
+
+.detail-panel-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+
+}
+
+.panel-block {
+  background: #0f0f0f;
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.panel-block h4 {
+  margin: 0 0 8px;
+  color: #d00000;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.theme-cd-pink .panel-block h4 { color: #ff2a85; }
+.theme-ab-blue .panel-block h4 { color: #00d2ff; }
+.theme-s-red .panel-block h4   { color: #d00000; }
+
+.panel-block p {
+  margin: 0;
+  color: #a0a0a0;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.panel-status {
+  font-weight: 600;
+  color: #f1f1f1 !important;
+  margin-bottom: 12px !important;
+}
+
+.panel-actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+@keyframes panelSlide {
+  from { opacity: 0; transform: translateY(-12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- RANK GROUP SECTIONS --- */
+.rank-group-section {
+  margin-bottom: 50px;
+}
+
+.group-header {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #2a2a2a;
+  padding-bottom: 12px;
+}
+
+.group-title-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.group-title {
+  margin: 0;
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: clamp(1.4rem, 2.8vw, 2rem);
+  color: #f1f1f1;
+}
+
+.group-theme-tag {
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.group-cd .group-title { color: #ff66b2; }
+.group-cd .group-theme-tag { background: rgba(255, 42, 133, 0.2); border: 1px solid #ff2a85; color: #ff66b2; }
+
+.group-ab .group-title { color: #33e0ff; }
+.group-ab .group-theme-tag { background: rgba(0, 210, 255, 0.2); border: 1px solid #00d2ff; color: #33e0ff; }
+
+.group-s .group-title { color: #ff3333; }
+.group-s .group-theme-tag { background: rgba(208, 0, 0, 0.2); border: 1px solid #d00000; color: #ff3333; }
+
+.group-subtitle {
+  margin: 6px 0 0;
+  color: #a0a0a0;
+  font-size: 0.92rem;
+}
+
+/* --- MISSION CARDS GRID --- */
+.missions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.board-card {
+  background: #0f0f0f;
+  border: 1px solid #2a2a2a;
+  border-radius: 14px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.board-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.9);
+}
+
+.select-indicator {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  color: #a0a0a0;
+}
+
+/* Card Ranks & Themes */
+.card-cd:hover { border-color: #ff2a85; box-shadow: 0 0 20px rgba(255, 42, 133, 0.3); }
+.card-ab:hover { border-color: #00d2ff; box-shadow: 0 0 20px rgba(0, 210, 255, 0.3); }
+.card-s:hover  { border-color: #d00000; box-shadow: 0 0 20px rgba(208, 0, 0, 0.4); }
+
+.rank-badge.rank-cd { background: rgba(255, 42, 133, 0.2); border: 1px solid #ff2a85; color: #ff66b2; }
+.rank-badge.rank-ab { background: rgba(0, 210, 255, 0.2); border: 1px solid #00d2ff; color: #33e0ff; }
+.rank-badge.rank-s  { background: rgba(208, 0, 0, 0.25); border: 1px solid #d00000; color: #ff3333; }
+
+/* Selected Card Highlight */
+.board-card.selected-card {
+  transform: translateY(-8px) scale(1.02);
+}
+
+.card-cd.selected-card { border-color: #ff2a85; box-shadow: 0 0 30px rgba(255, 42, 133, 0.6); }
+.card-ab.selected-card { border-color: #00d2ff; box-shadow: 0 0 30px rgba(0, 210, 255, 0.6); }
+.card-s.selected-card  { border-color: #d00000; box-shadow: 0 0 30px rgba(208, 0, 0, 0.7); }
+
+.card-title {
+  margin: 12px 0 10px;
+  font-size: 1.3rem;
+  color: #f1f1f1;
+}
+
+.card-desc {
+  color: #a0a0a0;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin: 0 0 18px;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.tech-tag {
+  background: #0a0a0a;
+  border: 1px solid #2a2a2a;
+  color: #f1f1f1;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.78rem;
+}
+
+.card-cd .tech-tag { border-color: rgba(255, 42, 133, 0.4); color: #ff66b2; }
+.card-ab .tech-tag { border-color: rgba(0, 210, 255, 0.4); color: #33e0ff; }
+.card-s .tech-tag  { border-color: rgba(208, 0, 0, 0.4); color: #ff3333; }
+
+.btn-details {
+  background: #0a0a0a;
+  border: 1px solid #2a2a2a;
+  color: #f1f1f1;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+  transition: all 0.25s ease;
+  width: 100%;
+}
+
+.card-cd .btn-details:hover { background: rgba(255, 42, 133, 0.2); border-color: #ff2a85; }
+.card-ab .btn-details:hover { background: rgba(0, 210, 255, 0.2); border-color: #00d2ff; }
+.card-s .btn-details:hover  { background: rgba(208, 0, 0, 0.25); border-color: #d00000; }
+
+@media (max-width: 900px) {
+  .missions-grid,
+  .detail-panel-grid {
+    grid-template-columns: 1fr;
+  }
+}

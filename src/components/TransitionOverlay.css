@@ -1,0 +1,131 @@
+/* Transition Overlay - Minato Flying Thunder God Kunai Animation */
+.transition-overlay {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(7, 2, 2, 0.96);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 9999;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.transition-overlay.is-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
+.transition-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.transition-core {
+  position: relative;
+  width: min(76vw, 620px);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  z-index: 2;
+}
+
+.kunai {
+  width: min(72vw, 640px);
+  position: relative;
+  z-index: 3;
+  filter: drop-shadow(0 0 20px rgba(255, 177, 115, 0.5));
+}
+
+.seal-ring,
+.seal-text-ring,
+.seal-mark {
+  position: absolute;
+  opacity: 0;
+}
+
+.seal-ring {
+  border-radius: 50%;
+  border: 2px solid rgba(255, 208, 153, 0.8);
+  box-shadow: 0 0 22px rgba(255, 194, 132, 0.28);
+}
+
+.seal-ring-one { inset: 33%; z-index: 2; }
+.seal-ring-two { inset: 22%; z-index: 2; }
+.seal-ring-three { inset: 10%; z-index: 2; }
+
+.seal-text-ring {
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  letter-spacing: 0.5em;
+  color: rgba(255, 239, 215, 0.92);
+  text-shadow: 0 0 10px rgba(255, 184, 122, 0.78);
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  z-index: 2;
+}
+
+.seal-text-ring-one {
+  transform: rotate(90deg) scale(0.15);
+}
+
+.seal-text-ring-two {
+  inset: 16%;
+  transform: rotate(-90deg) scale(0.15);
+}
+
+.seal-mark {
+  inset: 50%;
+  margin: -1px;
+  border-top: 2px solid rgba(255, 220, 188, 0.82);
+  transform-origin: center center;
+  z-index: 2;
+}
+
+.seal-mark-one { transform: rotate(0deg) scaleX(0.1); }
+.seal-mark-two { transform: rotate(60deg) scaleX(0.1); }
+.seal-mark-three { transform: rotate(120deg) scaleX(0.1); }
+
+.transition-overlay.is-active .seal-ring-one,
+.transition-overlay.is-active .seal-ring-two,
+.transition-overlay.is-active .seal-ring-three,
+.transition-overlay.is-active .seal-text-ring-one,
+.transition-overlay.is-active .seal-text-ring-two,
+.transition-overlay.is-active .seal-mark-one,
+.transition-overlay.is-active .seal-mark-two,
+.transition-overlay.is-active .seal-mark-three {
+  animation: seal-expand 1.05s ease-out forwards;
+}
+
+.transition-overlay.is-active .seal-ring-two,
+.transition-overlay.is-active .seal-text-ring-two,
+.transition-overlay.is-active .seal-mark-two {
+  animation-delay: 0.12s;
+}
+
+.transition-overlay.is-active .seal-ring-three,
+.transition-overlay.is-active .seal-mark-three {
+  animation-delay: 0.22s;
+}
+
+@keyframes seal-expand {
+  0% {
+    opacity: 0;
+    transform: scale(0.15);
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+}
